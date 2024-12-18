@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Fashion Wear - Online Shopping</title>
+    <!-- Bootstrap CDN for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product ul {
+            list-style: none;
+            padding: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .product ul li {
+            margin-bottom: 8px;
+        }
+
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .checkout {
+            background-color: #4CAF50;
+            color: white;
+            width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Men's Fashion Wear - Online Shopping</h1>
+    <ul>
+        <li><a href="womenpage.html">Women's Fashion</a></li>
+        <li><a href="login.html">Loginpage</a></li>
+    </ul>
+</header>
+
+<div class="container mt-5">
+    <div class="row g-4">
+        <!-- Product 1: Casual Shirt -->
+        <div class="col-md-3 col-sm-6">
+            <div class="card product">
+                <img src="images/casualshirts.jpg" class="card-img-top" alt="Men's Casual Shirt">
+                <div class="card-body">
+                    <h5 class="card-title">Men's Casual Shirt</h5>
+                    <p class="card-text">Comfortable cotton shirt perfect for casual outings and office wear. Available in various colors and sizes.</p>
+                    <ul>
+                        <li>Fabric: 100% Cotton</li>
+                        <li>Fit: Regular Fit</li>
+                        <li>Colors: White, Blue, Black</li>
+                        <li>Sizes: S, M, L, XL</li>
+                    </ul>
+                    <div class="price">₹2,299</div>
+                    <button class="btn btn-success w-100" onclick="addToCart('Men\'s Casual Shirt', 2299)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2: Slim Fit Jeans -->
+        <div class="col-md-3 col-sm-6">
+            <div class="card product">
+                <img src="images/formalshirt.jpg" class="card-img-top" alt="Men's Slim Fit Jeans">
+                <div class="card-body">
+                    <h5 class="card-title">Men's Slim Fit Jeans</h5>
+                    <p class="card-text">High-quality slim fit jeans with a modern design. Great for a night out or a smart-casual look.</p>
+                    <ul>
+                        <li>Fabric: Denim</li>
+                        <li>Fit: Slim Fit</li>
+                        <li>Colors: Dark Blue, Light Blue, Black</li>
+                        <li>Sizes: 28, 30, 32, 34, 36</li>
+                    </ul>
+                    <div class="price">₹3,499</div>
+                    <button class="btn btn-success w-100" onclick="addToCart('Men\'s Slim Fit Jeans', 3499)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3: Graphic T-shirt -->
+        <div class="col-md-3 col-sm-6">
+            <div class="card product">
+                <img src="images/graphictshirt.jpg" class="card-img-top" alt="Men's Graphic T-shirt">
+                <div class="card-body">
+                    <h5 class="card-title">Men's Graphic T-shirt</h5>
+                    <p class="card-text">Stylish graphic t-shirt for casual outings. Designed with bold prints and made from soft fabric.</p>
+                    <ul>
+                        <li>Fabric: 60% Cotton, 40% Polyester</li>
+                        <li>Fit: Regular Fit</li>
+                        <li>Colors: Black, White, Red</li>
+                        <li>Sizes: M, L, XL</li>
+                    </ul>
+                    <div class="price">₹1,499</div>
+                    <button class="btn btn-success w-100" onclick="addToCart('Men\'s Graphic T-shirt', 1499)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4: Leather Jacket -->
+        <div class="col-md-3 col-sm-6">
+            <div class="card product">
+                <img src="images/leatherjacket.jpg" class="card-img-top" alt="Men's Leather Jacket">
+                <div class="card-body">
+                    <h5 class="card-title">Men's Leather Jacket</h5>
+                    <p class="card-text">Premium leather jacket for a bold and stylish look. Ideal for winter wear and evening outings.</p>
+                    <ul>
+                        <li>Fabric: Genuine Leather</li>
+                        <li>Fit: Slim Fit</li>
+                        <li>Colors: Black, Brown</li>
+                        <li>Sizes: M, L, XL</li>
+                    </ul>
+                    <div class="price">₹5,999</div>
+                    <button class="btn btn-success w-100" onclick="addToCart('Men\'s Leather Jacket', 5999)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Section -->
+<div class="cart">
+    <h4>Shopping Cart</h4>
+    <ul id="cart-items">
+        <!-- Cart items will appear here -->
+    </ul>
+    <div id="total-price">
+        Total: ₹0.00
+    </div>
+    <button class="btn btn-success checkout" onclick="checkout()">Proceed to Checkout</button>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    let cart = [];
+    let totalPrice = 0;
+
+    // Function to add items to the cart
+    function addToCart(productName, productPrice) {
+        cart.push({ name: productName, price: productPrice });
+        totalPrice += productPrice;
+
+        updateCart();
+    }
+
+    // Function to update the cart UI
+    function updateCart() {
+        const cartItemsList = document.getElementById('cart-items');
+        cartItemsList.innerHTML = ''; // Clear current cart items
+
+        // Add cart items dynamically
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - ₹${item.price.toLocaleString()}`;
+            cartItemsList.appendChild(li);
+        });
+
+        // Update total price
+        document.getElementById('total-price').textContent = `Total: ₹${totalPrice.toLocaleString()}`;
+    }
+
+    // Checkout function (simple placeholder)
+    function checkout() {
+        alert('Proceeding to Checkout...');
+    }
+</script>
+
+</body>
+</html>
